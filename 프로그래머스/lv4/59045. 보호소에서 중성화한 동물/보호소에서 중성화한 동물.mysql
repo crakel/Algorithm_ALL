@@ -1,0 +1,5 @@
+-- 코드를 입력하세요
+SELECT ai.ANIMAL_ID, ai.ANIMAL_TYPE, ai.NAME
+FROM ANIMAL_INS ai
+JOIN ANIMAL_OUTS ao ON ao.ANIMAL_ID = ai.ANIMAL_ID
+WHERE (SEX_UPON_INTAKE = 'Intact Female' AND SEX_UPON_OUTCOME = 'Spayed Female') OR (SEX_UPON_INTAKE = 'Intact Male' AND SEX_UPON_OUTCOME = 'Neutered Male')
