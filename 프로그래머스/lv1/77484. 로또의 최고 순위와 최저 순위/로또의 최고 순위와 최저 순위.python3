@@ -1,0 +1,26 @@
+def solution(lottos, win_nums):
+    count = 0
+    zero = 0
+    
+    for num in lottos:
+        if num in win_nums:
+            count += 1
+        if num == 0:
+            zero += 1
+    
+    high = count + zero
+    low = count
+    
+    if high < 2:
+        high = 6
+    else:
+        high = 7 - high
+    
+    if low < 2:
+        low = 6
+    else:
+        low = 7 - low
+        
+    
+    answer = [high, low]
+    return answer
