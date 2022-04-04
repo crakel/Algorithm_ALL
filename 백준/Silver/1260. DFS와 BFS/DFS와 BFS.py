@@ -15,34 +15,28 @@ for value in graph.values():
 
 
 def dfs(v):
-    if len(visited) == n:
-        return
-
-    visited.append(v)
+    visited[v] = 1
+    print(v, end=' ')
     for w in graph[v]:
-        if w not in visited:
+        if not visited[w]:
             dfs(w)
 
 
 def bfs(v):
-    visited.append(v)
+    visited[v] = 1
     q = deque([v])
     while q:
         cur = q.popleft()
+        print(cur, end =' ')
         for w in graph[cur]:
-            if w not in visited:
-                visited.append(w)
+            if not visited[w]:
+                visited[w] = 1
                 q.append(w)
 
 
-visited = []
+visited = [0] * (n+1)
 dfs(v)
-for n in visited:
-    print(n, end=" ")
-
 print()
 
-visited = []
+visited = [0] * (n+1)
 bfs(v)
-for n in visited:
-    print(n, end=" ")
