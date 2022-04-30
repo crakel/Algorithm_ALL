@@ -33,7 +33,7 @@ def process():
 
             lr, lc = r + dir[ld][0], c + dir[ld][1]
             d = ld
-            if 0 <= lr < n and 0 <= lc < m and field[lr][lc] != 1 and not visited[lr][lc]:
+            if field[lr][lc] != 1 and not visited[lr][lc]:
                 visited[lr][lc] = 1
                 r, c = lr, lc
                 cnt += 1
