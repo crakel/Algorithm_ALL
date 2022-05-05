@@ -7,11 +7,15 @@ sol = list(map(int, sys.stdin.readline().split()))
 sol.sort()
 #print(sol)
 
-if len(sol) == 3:
+if len(sol) == 3 or sol[0] > 0:
     print(sol[0], sol[1], sol[2])
     exit(0)
 
 
+if sol[-1] < 0:
+    print(sol[-3], sol[-2], sol[-1])
+    exit(0)
+    
 closest = sys.maxsize
 for fix in range(n-2):
     left = fix + 1
@@ -22,7 +26,8 @@ for fix in range(n-2):
             ans = (sol[fix], sol[left], sol[right])
             closest = abs(mix)
             if closest == 0:
-                break
+                print(*ans)
+                exit(0)
 
         if mix < 0:
             left += 1
