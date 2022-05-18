@@ -7,9 +7,18 @@ a = list(map(int, sys.stdin.readline().split()))
 left = 0
 right = 0
 max_len = 0
-# 최대 숫자 만큼 카운터 생성
+# 최대 숫자 만큼 카운터 생성 -> 딕셔너리로 성능 향상 x
+# 실제 크기만큼 배열 생성하는게 오히려 더 빠르다.
 counter = [0] * (max(a) + 1)
+# counter = {i: 0 for i in a}
+# counter = {}
 while left != n and right != n:
+    # if a[right] not in counter:
+    #     counter[a[right]] = 0
+    #
+    # if a[left] not in counter:
+    #     counter[a[left]] = 0
+
     if counter[a[right]] < k:
         counter[a[right]] += 1
         right += 1
