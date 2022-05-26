@@ -37,10 +37,10 @@ def bt(depth):
         if field[nr][nc] in able:
             able.remove(field[nr][nc])
 
-    for a in list(able):
+    for a in able:
         field[r][c] = a
         bt(depth+1)
-    field[r][c] = 0
+        field[r][c] = 0
 
 
 bt(0)
