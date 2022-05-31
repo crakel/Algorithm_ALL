@@ -1,0 +1,26 @@
+def solution(answers):
+    answer = []
+    one = [1,2,3,4,5]
+    two = [2,1,2,3,2,4,2,5]
+    three = [3,3,1,1,2,2,4,4,5,5]
+    dic = {1: 0, 2: 0, 3: 0}
+    
+    for i in range(len(answers)):
+        one_i = i%len(one)
+        two_i = i%len(two)
+        three_i = i%len(three)
+        
+        if one[one_i] == answers[i]:
+            dic[1] += 1
+        
+        if two[two_i] == answers[i]:
+            dic[2] += 1
+        
+        if three[three_i] == answers[i]:
+            dic[3] += 1
+    
+    max_cnt = max(dic.values())
+    for key, value in dic.items():
+        if value == max_cnt:
+            answer.append(key)
+    return answer
