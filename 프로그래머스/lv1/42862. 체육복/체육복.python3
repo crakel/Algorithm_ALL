@@ -1,0 +1,15 @@
+def solution(n, lost, reserve):
+    _lost = set(lost) - set(reserve)
+    _reserve = set(reserve) - set(lost)
+    
+    for r in _reserve:
+        left = r - 1
+        right = r + 1
+        if left in _lost:
+            _lost.remove(left)
+        
+        elif right in _lost:
+            _lost.remove(right)
+            
+    answer = n - len(_lost)
+    return answer
