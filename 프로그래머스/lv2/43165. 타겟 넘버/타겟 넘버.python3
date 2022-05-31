@@ -1,0 +1,14 @@
+answer = 0
+def solution(numbers, target):
+    def dfs(depth, total):
+        global answer
+        if depth == len(numbers):
+            if total == target:
+                answer += 1
+            return
+        
+        dfs(depth+1, total+numbers[depth])
+        dfs(depth+1, total-numbers[depth])
+    
+    dfs(0, 0)
+    return answer
