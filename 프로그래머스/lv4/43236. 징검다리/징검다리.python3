@@ -1,0 +1,27 @@
+def solution(distance, rocks, n):
+    answer = 0
+    rocks.sort()
+    left, right = 0, distance
+    
+    while left <= right:
+        # 거리의 최소값으로 가정
+        mid = (left + right) // 2
+        deleted = 0
+        # 비교할 바위 위치
+        start = 0
+        for rock in rocks:
+            if rock - start < mid:
+                deleted += 1
+            
+            else:
+                start = rock
+                
+            
+        if deleted > n:
+            right = mid - 1
+        
+        else:
+            answer = mid
+            left = mid + 1
+                
+    return answer
