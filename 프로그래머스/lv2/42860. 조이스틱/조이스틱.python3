@@ -12,11 +12,11 @@ def solution(name):
     nxt = 0
     min_move = len(name) - 1
 
-    for i, char in enumerate(name):
+    for i in range(len(name)):
         #print(alp.index(name[i]), list(reversed(alp)).index(name[i]) + 1)
         # 상하 이동
-        #answer += min(alp.index(name[i]), list(reversed(alp)).index(name[i]) + 1)
-        answer += min(ord(char) - ord('A'), ord('Z') - ord(char) + 1)
+        answer += min(alp.index(name[i]), list(reversed(alp)).index(name[i]) + 1)
+        # answer += min(ord(char) - ord('A'), ord('Z') - ord(char) + 1)
         # 좌우 이동
         # 경우의 수
         # 1. 한번에 쭉(A안만남) -> 제일 빠름 그냥 계속가면됨
