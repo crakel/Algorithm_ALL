@@ -3,7 +3,7 @@ def solution(bridge_length, weight, truck_weights):
     q = []
     done = []
     goal = len(truck_weights)
-    while True:
+    while len(done) != goal:
         time += 1
         sum_q = 0
         if q:
@@ -12,9 +12,6 @@ def solution(bridge_length, weight, truck_weights):
         
             if q[0][1] == 0:
                 done.append(q.pop(0)[0])
-        
-        if len(done) == goal:
-            break
             
         for n in q:
             sum_q += n[0]
