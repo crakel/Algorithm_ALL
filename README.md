@@ -1,4 +1,4 @@
-# Algorithm_BOJ_ALL
+# Algorithm_ALL
 ## BOJ/Programmers/SW Expert Academy
 BaekjoonHub Extension을 사용하여 자동 업로드 된 알고리즘 코드 저장소 입니다.
 
