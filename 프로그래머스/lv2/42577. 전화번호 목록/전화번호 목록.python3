@@ -1,0 +1,10 @@
+def solution(phone_book):
+    # str 기본 sort 정렬 시 ASCII 코드로 -> 작은 숫자부터 비슷한 문자열 끼리 묶이게됨 (접두어)
+    phone_book.sort()
+    
+    # zip함수 통해 두 개 짝으로 묶음 -> iterator로 phone_book 인덱스 변경됨
+    for a, b in zip(phone_book, phone_book[1:]):
+        if b.startswith(a):
+            return False
+           
+    return True
