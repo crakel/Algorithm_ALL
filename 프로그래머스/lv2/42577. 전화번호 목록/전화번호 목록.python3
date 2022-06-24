@@ -1,10 +1,23 @@
 def solution(phone_book):
-    # str 기본 sort 정렬 시 ASCII 코드로 -> 작은 숫자부터 비슷한 문자열 끼리 묶이게됨 (접두어)
-    phone_book.sort()
+    # 딕셔너리 풀이
+    dic = {}
+    for phone_number in phone_book:
+        dic[phone_number] = 1
     
-    # zip함수 통해 두 개 짝으로 묶음 -> iterator로 phone_book 인덱스 변경됨
-    for a, b in zip(phone_book, phone_book[1:]):
-        if b.startswith(a):
-            return False
-           
+    for phone_number in phone_book:
+        temp = ""
+        for number in phone_number:
+            temp += number
+            if temp in dic and temp != phone_number:
+                return False
     return True
+
+# def solution(phone_book):
+#     # str 기본 sort 정렬 시 ASCII 코드로 -> 작은 숫자부터 비슷한 문자열 끼리 묶이게됨 (접두어)
+#     phone_book.sort()
+    
+#     # zip함수 통해 두 개 짝으로 묶음 -> iterator로 phone_book 인덱스 변경됨
+#     for a, b in zip(phone_book, phone_book[1:]):
+#         if b.startswith(a):
+#             return False
+#     return True
