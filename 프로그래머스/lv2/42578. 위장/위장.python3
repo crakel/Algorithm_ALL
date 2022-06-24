@@ -1,0 +1,15 @@
+def solution(clothes):
+    answer = 0
+    dic = {}
+    for cloth in clothes:
+        if cloth[1] in dic:
+            dic[cloth[1]] += 1
+        else:
+            dic[cloth[1]] = 1
+
+    cnt = 1
+    for key in dic:
+        # 입지않는 경우 포함 경우의 수
+        cnt *= (dic[key] + 1)
+
+    return cnt - 1 # 모두 안입는 것 제외
