@@ -1,0 +1,46 @@
+import heapq
+
+def solution(operations):
+    answer = []
+    min_h = []
+    max_h = []
+    deleted = [0] * len(operations)
+    
+    for i, operation in enumerate(operations):
+        print(operation)
+        o, n = operation.split()
+        n = int(n)
+        
+        if o == "I":
+            heapq.heappush(min_h, (n, i))
+            heapq.heappush(max_h, (-n, i))
+        
+        else:
+            if n == -1:
+                # 큐 동기화
+                while min_h and deleted[min_h[0][1]]:
+                    heapq.heappop(min_h)
+                # 연산 수행
+                if min_h:
+                    deleted[min_h[0][1]] = 1
+                    heapq.heappop(min_h)
+            elif n == 1:
+                # 큐 동기화
+                while max_h and deleted[max_h[0][1]]:
+                    heapq.heappop(max_h)
+                # 연산 수행
+                if max_h:
+                    deleted[max_h[0][1]] = 1
+                    heapq.heappop(max_h)
+    
+    # 큐 동기화
+    while min_h and deleted[min_h[0][1]]:
+        heapq.heappop(min_h)
+    while max_h and deleted[max_h[0][1]]:
+        heapq.heappop(max_h)
+    
+    
+    if not min_h and not max_h:
+        return [0, 0]
+            
+    return [-max_h[0][0], min_h[0][0]]
