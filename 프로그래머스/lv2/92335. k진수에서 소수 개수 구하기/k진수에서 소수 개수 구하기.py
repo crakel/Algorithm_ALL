@@ -5,8 +5,6 @@ def solution(n, k):
     
     def convert(n, k):
         res = ""
-        if n == 0:
-            return "0"
         
         while n > 0:
             n, mod = divmod(n, k)
